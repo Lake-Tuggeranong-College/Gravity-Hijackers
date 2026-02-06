@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b42vujo3qngpl"]
+
+[ext_resource type="Script" uid="uid://c3b8jfe50fmpl" path="res://gravityshift_power_up.gd" id="1_x2fgr"]
+
+[node name="Gravityshift Power-up" type="Node3D" unique_id=1348873759]
+script = ExtResource("1_x2fgr")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1014152025]

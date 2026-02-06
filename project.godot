@@ -28,6 +28,10 @@ project/assembly_name="MultiplayerFPSTemplate"
 
 import/blender/enabled=false
 
+[global_group]
+
+Player=""
+
 [input]
 
 ui_accept={
