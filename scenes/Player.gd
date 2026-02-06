@@ -9,7 +9,7 @@ signal health_changed(health_value)
 
 var health = 3
 
-const SPEED = 10.0
+const SPEED = 5.5
 const JUMP_VELOCITY = 10.0
 const LOOK_SPEED = 5 # Adjust as needed for controller comfort
 

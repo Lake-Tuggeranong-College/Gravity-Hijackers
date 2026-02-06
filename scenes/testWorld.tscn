@@ -2,21 +2,25 @@
 
 [ext_resource type="Script" uid="uid://demmf2hbrwaat" path="res://scenes/world.gd" id="1_ctiuy"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://scenes/environment.tscn" id="2_fr3vy"]
+[ext_resource type="Texture2D" uid="uid://c4dk7vc0tehju" path="res://scenes/eso0932a.jpg" id="2_myy55"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_hbot1"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://scenes/enemy.tscn" id="3_nule3"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u5pdl"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7nwna"]
+panorama = ExtResource("2_myy55")
+energy_multiplier = 4.78
 
-[sub_resource type="Sky" id="Sky_w2qqb"]
-sky_material = SubResource("ProceduralSkyMaterial_u5pdl")
+[sub_resource type="Sky" id="Sky_rucky"]
+sky_material = SubResource("PanoramaSkyMaterial_7nwna")
 
-[sub_resource type="Environment" id="Environment_6knbf"]
+[sub_resource type="Environment" id="Environment_0ddhe"]
 background_mode = 2
-sky = SubResource("Sky_w2qqb")
-tonemap_mode = 2
-glow_enabled = true
+sky = SubResource("Sky_rucky")
+sky_custom_fov = 96.8
+adjustment_enabled = true
+adjustment_brightness = 0.61
+adjustment_contrast = 1.05
+adjustment_saturation = 2.21
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujyws"]
 bg_color = Color(1, 0.117647, 0, 1)
@@ -35,8 +39,8 @@ script = ExtResource("1_ctiuy")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1553380858]
-environment = SubResource("Environment_6knbf")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1137519621]
+environment = SubResource("Environment_0ddhe")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=781029339]
 
