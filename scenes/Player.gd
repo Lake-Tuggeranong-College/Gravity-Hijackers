@@ -6,8 +6,11 @@ signal health_changed(health_value)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
+@onready var ammo_display = $Camera3D/AmmoDisplay
+
 
 var health = 3
+var ammo_count = 15
 
 const SPEED = 10.0
 const JUMP_VELOCITY = 10.0
@@ -37,8 +40,13 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 	
-	if Input.is_action_just_pressed("shoot") \
-			and anim_player.current_animation != "shoot":
+	if Input.is_action_just_pressed("reload"):
+		await get_tree().create_timer(1).timeout
+		upd_ammo(0, true) # call reload update
+	
+	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot" and ammo_count > 0:
+		upd_ammo(-1)
+		
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
 			var hit_player = raycast.get_collider()
@@ -107,3 +115,10 @@ func receive_damage():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shoot":
 		anim_player.play("idle")
+
+func upd_ammo(num: int, reload: bool = false):
+	if reload:
+		ammo_count = 15
+	else:
+		ammo_count += num
+	ammo_display.text = "%d / 15" % ammo_count

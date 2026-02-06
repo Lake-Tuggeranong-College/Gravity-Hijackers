@@ -165,6 +165,14 @@ draw_pass_1 = SubResource("PlaneMesh_b2g4i")
 target_position = Vector3(0, 0, -50)
 collision_mask = 2
 
+[node name="AmmoDisplay" type="Label" parent="Camera3D" unique_id=293892308]
+offset_left = 64.0
+offset_top = 568.0
+offset_right = 160.0
+offset_bottom = 610.0
+theme_override_font_sizes/font_size = 30
+text = "15 / 15"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1889766177]
 libraries/ = SubResource("AnimationLibrary_p6wdk")
 autoplay = &"idle"
