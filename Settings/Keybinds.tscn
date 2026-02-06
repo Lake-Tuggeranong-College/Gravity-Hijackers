@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://eg82xoewjyis"]
+
+[node name="Hotkeys" type="Control" unique_id=2011656708]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1351617523]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 9.5
+offset_right = 764.0
+offset_bottom = 62.5
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1360834814]
+layout_mode = 2
+text = "Action"
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer" unique_id=669499096]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1686553168]
+layout_mode = 2

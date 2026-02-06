@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://yi6ckjyllqow"]
+
+[ext_resource type="PackedScene" uid="uid://c5835nuxf3t82" path="res://Settings/SettingsTabs.tscn" id="1_mgv0j"]
+
+[node name="TabContainer" type="Control" unique_id=1669690722]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2107786969]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1324512471]
+layout_mode = 2
+theme_override_constants/separation = -20
+
+[node name="SettingsTabs" parent="MarginContainer/VBoxContainer" unique_id=855484945 instance=ExtResource("1_mgv0j")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=992483205]
+layout_mode = 2
