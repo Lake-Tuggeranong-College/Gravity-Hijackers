@@ -22,7 +22,7 @@ config/icon="uid://el1jrwdua5i0"
 
 [autoload]
 
-world="*uid://demmf2hbrwaat"
+Global="*uid://7r4ojokijiyj"
 
 [dotnet]
 

@@ -6,8 +6,7 @@ signal health_changed(health_value)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
-@onready var hud = world.get_node("CanvasLayer/HUD")
-@onready var ammo_display = hud.get_node("AmmoDisplay")
+@onready var ammo_display = Global.worldNode.hud.get_node("AmmoDisplay")
 
 var health = 3
 var ammo_count = 15
@@ -22,7 +21,6 @@ const LOOK_SPEED = 5 # Adjust as needed for controller comfort
 var gravity = 20.0
 
 func _enter_tree():
-	print(name)
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
@@ -125,7 +123,9 @@ func _on_animation_player_animation_finished(anim_name):
 func upd_ammo(num: int, reload: bool = false):
 	if reload:
 		reloading = true
+		Global.worldNode.hud.get_node("Crosshair").hide()
 		await get_tree().create_timer(1).timeout
+		Global.worldNode.hud.get_node("Crosshair").show()
 		ammo_count = 15
 		reloading = false
 	else:
