@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if (body.name == "Player"):
-		ProjectSettings.set_setting("physics/3d/default_gravity", -980)
+		var player_gravity = 0
+	queue_free()
 
 #physics/3d/default_gravity

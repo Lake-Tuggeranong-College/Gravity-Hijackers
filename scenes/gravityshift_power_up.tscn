@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://b42vujo3qngpl"]
 
 [ext_resource type="Script" uid="uid://c3b8jfe50fmpl" path="res://gravityshift_power_up.gd" id="1_x2fgr"]
+[ext_resource type="Texture2D" uid="uid://cng7jjwgx5mhg" path="res://scenes/green_colour(GRAVSHIFTpowerup).png" id="2_jljyc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qu2qn"]
+albedo_texture = ExtResource("2_jljyc")
 
 [node name="Gravityshift Power-up" type="Node3D" unique_id=1348873759]
 script = ExtResource("1_x2fgr")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1014152025]
+material_override = SubResource("StandardMaterial3D_qu2qn")

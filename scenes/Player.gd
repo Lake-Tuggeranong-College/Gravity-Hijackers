@@ -12,12 +12,13 @@ signal health_changed(health_value)
 var health = 3
 var ammo_count = 15
 
+#var player_gravity = 20.0
 var SPEED = 5.5
 const JUMP_VELOCITY = 10.0
 const LOOK_SPEED = 5 # Adjust as needed for controller comfort
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 20.0
+var player_gravity = 20.0
 
 func _enter_tree():
 	print(name)
@@ -57,7 +58,7 @@ func _physics_process(delta):
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		velocity.y -= player_gravity * delta
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
