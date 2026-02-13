@@ -11,7 +11,6 @@ extends Node
 var tracked = false
 var player
 
-
 const PORT = 9999
 var enet_peer = ENetMultiplayerPeer.new()
 
@@ -54,6 +53,7 @@ func upnp_setup():
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	$AudioStreamPlayer.play()
 
 
 func _physics_process(delta):
