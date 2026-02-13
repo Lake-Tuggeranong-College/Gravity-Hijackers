@@ -72,6 +72,7 @@ func _physics_process(delta):
 		SPEED = 5.5
 
 	if Input.is_action_just_pressed("player_crouch"):
+		print("crouch")
 		crouch()
 
 	# Get the input direction and handle the movement/deceleration.
@@ -137,10 +138,12 @@ func upd_ammo(num: int, reload: bool = false):
 	ammo_display.text = "%d / 15" % ammo_count
 
 func crouch():
-	if Crouchstate == false:
+	if Crouchstate == true:
+		if Input.is_action_just_pressed("player_crouch"):
+			anim_player.play("Crouch", -1, -CROUCH_SPEED, true)
+			Crouchstate = false
+	elif Crouchstate == false:
 		if Input.is_action_just_pressed("player_crouch"):
 			anim_player.play("Crouch", -1, CROUCH_SPEED)
-			Crouchstate = 1
-	elif Crouchstate == true:
-		if Input.is_action_just_pressed("player_crouch"):
-			anim_player.play("Crouch", -1, -CROUCH_SPEED) 
+			Crouchstate = true
+	
