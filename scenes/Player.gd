@@ -6,12 +6,10 @@ signal health_changed(health_value)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
-@onready var ammo_display = $Camera3D/AmmoDisplay
 
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
 @export_range(5, 10, 0.1) var CROUCH_SPEED : float = 7.0
-
 
 @onready var ammo_display = Global.worldNode.hud.get_node("AmmoDisplay")
 

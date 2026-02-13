@@ -30,7 +30,7 @@ func set_action_name():
 			label.text = "Jump"
 		"player_sprint":
 			label.text = "Sprint"
-		"toggle_crouch":
+		"player_crouch":
 			label.text = "Crouch"
 
 
