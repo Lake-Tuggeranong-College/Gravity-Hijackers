@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bx2vjggij13yq"
+path="res://.godot/imported/theme finished-ish.mp3-94e2961fcf791a7c6aa630432cc43545.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/theme finished-ish.mp3"
+dest_files=["res://.godot/imported/theme finished-ish.mp3-94e2961fcf791a7c6aa630432cc43545.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=130.0
+beat_count=196
+bar_beats=4
