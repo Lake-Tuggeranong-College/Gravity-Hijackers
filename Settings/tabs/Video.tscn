@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://dgxxxoxaofxu2"]
 
-[node name="Control" type="Control" unique_id=1397301679]
+[ext_resource type="Script" uid="uid://bilgsfb88laib" path="res://Settings/tabs/Scripts/video.gd" id="1_xu5lu"]
+
+[node name="Video" type="Control" unique_id=1397301679]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xu5lu")
 
 [node name="OptionButton" type="OptionButton" parent="." unique_id=69985680]
 custom_minimum_size = Vector2(300, 100)
@@ -22,3 +25,5 @@ offset_right = 16.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
