@@ -116,6 +116,7 @@ func _physics_process(delta):
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
+	$AudioStreamPlayer3D.play()
 	muzzle_flash.restart()
 	muzzle_flash.emitting = true
 

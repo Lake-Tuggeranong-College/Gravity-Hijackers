@@ -7,15 +7,15 @@ const JUMP_VELOCITY = 4.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+signal health_changed(health_value)
 
-func update_target_location(target_location):
+func update_target_location (target_location):
 	nav_agent.set_target_position(target_location)
 
 func _physics_process(delta):
 	var current_location = global_transform.origin
 	var next_location = nav_agent.get_next_path_position()
-	if next_location != current_location:
-		look_at(next_location) # Enemy will turn to face player
+	look_at(next_location) # Enemy will turn to face player
 	
 	# Vector Maths
 	var new_veloicty = (next_location-current_location).normalized() * SPEED

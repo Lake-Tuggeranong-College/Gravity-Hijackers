@@ -10,10 +10,11 @@ extends Node
 var tracked = false
 var player
 
-
 const PORT = 9999
 var enet_peer = ENetMultiplayerPeer.new()
 
+func _ready() -> void:
+	$AudioStreamPlayer.play()
 
 func _on_host_button_pressed():
 	main_menu.hide()
@@ -49,12 +50,6 @@ func upnp_setup():
 	assert(map_result == UPNP.UPNP_RESULT_SUCCESS, "UPNP Port Mapping Failed! Error %s" % map_result)
 	
 	print("Success! Join Address: %s" % upnp.query_external_address())
-
-
-func _ready() -> void:
-	Global.worldNode = self
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
 
 func _physics_process(delta):
 	if tracked:

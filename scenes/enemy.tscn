@@ -6,17 +6,19 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bkvtw"]
 
-[node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
+[node name="Enemy" type="CharacterBody3D" unique_id=748982831 groups=["enemy"]]
 script = ExtResource("1_phvpf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=596329911]
 mesh = SubResource("CapsuleMesh_an04p")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1221098611]
 wait_time = 2.0
 autostart = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=633261141]
 shape = SubResource("CapsuleShape3D_bkvtw")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1806497813]
+
+[connection signal="health_changed" from="." to="." method="_on_health_changed"]
