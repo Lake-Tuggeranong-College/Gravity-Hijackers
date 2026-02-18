@@ -7,8 +7,8 @@ signal health_changed(health_value)
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
 @onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var current_gravity = default_gravity
-
+#@onready var current_gravity = default_gravity
+@onready var gravity_multiplier = 1.0
 
 
 var Crouchstate : bool = false
@@ -62,8 +62,8 @@ func _physics_process(delta):
 	if not is_multiplayer_authority(): return
 	
 	# Add the gravity.
-	#if not is_on_floor():
-		#velocity.y -= player_gravity * delta
+	if not is_on_floor():
+		velocity.y -= default_gravity * gravity_multiplier * delta
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("player_jump") and is_on_floor():

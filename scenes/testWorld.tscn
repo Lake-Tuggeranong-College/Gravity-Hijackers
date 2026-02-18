@@ -151,7 +151,7 @@ navigation_mesh = SubResource("NavigationMesh_rmptm")
 [node name="Environment" parent="NavigationRegion3D" unique_id=332111882 instance=ExtResource("2_fr3vy")]
 
 [node name="Gravityshift Power-up" parent="." unique_id=1348873759 instance=ExtResource("6_7nwna")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7278047, 0.5000005, -4.7965975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7278047, 0.5523484, 5.87885)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
