@@ -1,9 +1,14 @@
 extends Node3D
 
-@onready var Player = get_node("/root/scenes/player/Player")
+@onready var Player = get_node("res://scenes/player.tscn")
 #@onready var current_gravity = get_node("root/scenes/Player/current_gravity")
-@onready var default_gravity = get_node("root/scenes/Player/default_gravity")
-@onready var gravity_multiplier = get_node("root/scenes/Player/gravity_multiplier")
+@onready var player_node = get_node("res://scenes/Player.gd")
+@onready var default_gravity = player_node.default_gravity
+@onready var gravity_multiplier = player_node.gravity_multiplier
+
+
+
+# @onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 # Called when the node enters the scene tree for the first time.

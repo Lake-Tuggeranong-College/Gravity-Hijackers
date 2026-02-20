@@ -13,6 +13,7 @@ script = ExtResource("1_x2fgr")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1014152025]
 material_override = SubResource("StandardMaterial3D_qu2qn")
+rings = 15
 
 [node name="Area3D" type="Area3D" parent="CSGSphere3D" unique_id=855081879]
 
