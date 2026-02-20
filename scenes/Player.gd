@@ -10,7 +10,6 @@ signal health_changed(health_value)
 #@onready var current_gravity = default_gravity
 @onready var gravity_multiplier = 1.0
 
-
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
 @export_range(5, 10, 0.1) var CROUCH_SPEED : float = 7.0

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cng7jjwgx5mhg"
-path.s3tc="res://.godot/imported/green_colour(GRAVSHIFTpowerup).png-6dc7e09f0c9ed956fec689b8c7c569d6.s3tc.ctex"
+uid="uid://c4dk7vc0tehju"
+path.s3tc="res://.godot/imported/eso0932a.jpg-bdf5348f64dc698b05086f6d97088c14.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scenes/green_colour(GRAVSHIFTpowerup).png"
-dest_files=["res://.godot/imported/green_colour(GRAVSHIFTpowerup).png-6dc7e09f0c9ed956fec689b8c7c569d6.s3tc.ctex"]
+source_file="res://assets/images/eso0932a.jpg"
+dest_files=["res://.godot/imported/eso0932a.jpg-bdf5348f64dc698b05086f6d97088c14.s3tc.ctex"]
 
 [params]
 

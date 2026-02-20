@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://demmf2hbrwaat" path="res://scenes/world.gd" id="1_ctiuy"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://scenes/environment.tscn" id="2_fr3vy"]
-[ext_resource type="Texture2D" uid="uid://c4dk7vc0tehju" path="res://scenes/eso0932a.jpg" id="2_myy55"]
+[ext_resource type="Texture2D" uid="uid://c4dk7vc0tehju" path="res://assets/images/eso0932a.jpg" id="2_myy55"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_hbot1"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://scenes/enemy.tscn" id="3_nule3"]
 [ext_resource type="PackedScene" uid="uid://b42vujo3qngpl" path="res://scenes/gravityshift_power_up.tscn" id="6_7nwna"]

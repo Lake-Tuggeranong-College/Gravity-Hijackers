@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b42vujo3qngpl"]
 
 [ext_resource type="Script" uid="uid://c3b8jfe50fmpl" path="res://gravityshift_power_up.gd" id="1_x2fgr"]
-[ext_resource type="Texture2D" uid="uid://cng7jjwgx5mhg" path="res://scenes/green_colour(GRAVSHIFTpowerup).png" id="2_jljyc"]
+[ext_resource type="Texture2D" uid="uid://cng7jjwgx5mhg" path="res://assets/images/green_colour(GRAVSHIFTpowerup).png" id="2_jljyc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qu2qn"]
 albedo_texture = ExtResource("2_jljyc")

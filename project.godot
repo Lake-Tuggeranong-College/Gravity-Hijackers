@@ -24,6 +24,11 @@ config/icon="uid://el1jrwdua5i0"
 
 Global="*uid://7r4ojokijiyj"
 
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=720
+
 [dotnet]
 
 project/assembly_name="MultiplayerFPSTemplate"
