@@ -23,7 +23,7 @@ offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 3
+current_tab = 2
 
 [node name="General" type="TabBar" parent="TabContainer" unique_id=1194515287]
 visible = false
@@ -79,7 +79,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 128
 
 [node name="Audio" type="TabBar" parent="TabContainer" unique_id=2140110700]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -117,6 +116,7 @@ layout_mode = 2
 bus_name = "SFX"
 
 [node name="Controls" type="TabBar" parent="TabContainer" unique_id=330908642]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
