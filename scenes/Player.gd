@@ -6,6 +6,7 @@ signal health_changed(health_value)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
+@onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
 
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
