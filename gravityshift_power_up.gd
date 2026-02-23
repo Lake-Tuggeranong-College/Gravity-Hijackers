@@ -1,10 +1,11 @@
 extends Node3D
 
-@onready var Player = get_node("res://scenes/player.tscn")
+@onready var Player = preload("res://scenes/player.tscn")
 #@onready var current_gravity = get_node("root/scenes/Player/current_gravity")
-@onready var player_node = get_node("res://scenes/Player.gd")
-@onready var default_gravity = player_node.default_gravity
-@onready var gravity_multiplier = player_node.gravity_multiplier
+@onready var player_script = load("res://scenes/Player.gd")
+@onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+#player_node.default_gravity
+@onready var gravity_multiplier = player_script.gravity_multiplier
 
 
 
@@ -27,7 +28,7 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if (body.name == "Player"):
-		print(Player.name)
+		print(body.name)
 		gravity_multiplier = 0.2
 		queue_free()
 	else:
