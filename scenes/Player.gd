@@ -9,13 +9,12 @@ signal health_changed(health_value)
 @onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #@onready var current_gravity = default_gravity
 @onready var gravity_multiplier = 1.0
+@onready var World = ("res://scenes/world.gd")
+@onready var ammo_display = World.worldNode.hud.get_node("AmmoDisplay")
 
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
 @export_range(5, 10, 0.1) var CROUCH_SPEED : float = 7.0
-
-
-@onready var ammo_display = Global.worldNode.hud.get_node("AmmoDisplay")
 
 var health = 3
 var ammo_count = 15
