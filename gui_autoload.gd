@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var sfx_volume
+
 var gui_componenets = [
 	"res://Settings/tabs/Video.tscn"
 ]
@@ -26,3 +28,14 @@ func center_window():
 	var screen_center = DisplayServer.screen_get_position() + DisplayServer.screen_get_size() / 2
 	var window_size = get_window().get_size_with_decorations()
 	get_window().set_position(screen_center - window_size /2)
+
+
+func saveData():
+	var optionsFile = ConfigFile.new()
+	
+	optionsFile.set_value("Options", "sfx_volume", sfx_volume)
+	
+	
+	
+	
+	
