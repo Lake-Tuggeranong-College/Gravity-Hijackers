@@ -1,12 +1,12 @@
 extends Node3D
 
-@onready var Player = preload("res://scenes/player.tscn")
+#@onready var Player = preload("res://scenes/player.tscn")
 #@onready var current_gravity = get_node("root/scenes/Player/current_gravity")
-@onready var player_script = load("res://scenes/Player.gd")
 @onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var player_scene = preload("res://scenes/player.tscn")
+@onready var player_scene_instance = player_scene.instantiate()
 #player_node.default_gravity
-@onready var gravity_multiplier = player_script.gravity_multiplier
-
+@onready var gravity_multiplier = player_scene_instance.gravity_multiplier
 
 
 # @onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -16,6 +16,7 @@ extends Node3D
 func _ready() -> void:
 	print(default_gravity)
 	print(gravity_multiplier)
+	add_child(player_scene_instance)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
