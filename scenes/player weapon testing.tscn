@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bd7n5wpqg5p2e" path="res://scenes/player_weapon_testing.gd" id="1_uluio"]
 [ext_resource type="PackedScene" uid="uid://dqobsdcrfwvgc" path="res://shotgun_4.tscn" id="2_7vall"]
+[ext_resource type="AudioStream" uid="uid://crvshbotc1o3u" path="res://scenes/freesound_community-shotgun-03-38220.mp3" id="4_x4uai"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="4_xdh32"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xk8km"]
@@ -183,5 +184,13 @@ playback_default_blend_time = 0.05
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=374552710]
 replication_config = SubResource("SceneReplicationConfig_hn37q")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1584015483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.267263, 0)
+stream = ExtResource("4_x4uai")
+volume_db = 25.342
+
+[node name="bulletspawn" type="Node3D" parent="." unique_id=432005540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23447704, 1.3244319, -2.219405)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

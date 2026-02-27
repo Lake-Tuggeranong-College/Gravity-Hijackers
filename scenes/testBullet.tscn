@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://dymos46rfdufr" path="res://scenes/test_bullet.gd" id="1_4nxw0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4tan"]
+albedo_color = Color(0.085227154, 0.30676916, 0.0400251, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_781xo"]
-albedo_color = Color(0.295867, 0.295866, 0.295866, 1)
+albedo_color = Color(0.7542983, 0.41833338, 1.92523e-07, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6obvm"]
 radius = 0.872472
@@ -35,9 +36,4 @@ material = SubResource("StandardMaterial3D_781xo")
 transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 0, -0.0225677, -0.210455)
 shape = SubResource("CapsuleShape3D_6obvm")
 
-[node name="Timer" type="Timer" parent="." unique_id=1019084007]
-wait_time = 5.0
-autostart = true
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="destroy"]
