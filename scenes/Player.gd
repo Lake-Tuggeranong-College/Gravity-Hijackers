@@ -6,6 +6,11 @@ signal health_changed(health_value)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
+@onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+#@onready var current_gravity = default_gravity
+@onready var gravity_multiplier = 1.0
+@onready var World = ("res://scenes/world.gd")
+@onready var ammo_display = World.worldNode.hud.get_node("AmmoDisplay")
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
 
 var Crouchstate : bool = false
@@ -22,9 +27,6 @@ var reloading = false
 var SPEED = 5.5
 const JUMP_VELOCITY = 10.0
 const LOOK_SPEED = 5 # Adjust as needed for controller comfort
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 20.0
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -70,7 +72,7 @@ func _physics_process(delta):
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		velocity.y -= default_gravity * gravity_multiplier * delta
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("player_jump") and is_on_floor():

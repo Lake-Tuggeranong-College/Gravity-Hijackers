@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://demmf2hbrwaat" path="res://scenes/world.gd" id="1_ctiuy"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://scenes/environment.tscn" id="2_fr3vy"]
-[ext_resource type="Texture2D" uid="uid://c4dk7vc0tehju" path="res://scenes/eso0932a.jpg" id="2_myy55"]
+[ext_resource type="Texture2D" uid="uid://c4dk7vc0tehju" path="res://assets/images/eso0932a.jpg" id="2_myy55"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_hbot1"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://scenes/enemy.tscn" id="3_nule3"]
+[ext_resource type="PackedScene" uid="uid://b42vujo3qngpl" path="res://scenes/gravityshift_power_up.tscn" id="6_7nwna"]
 [ext_resource type="AudioStream" uid="uid://bx2vjggij13yq" path="res://assets/sound/theme finished-ish.mp3" id="6_7nwna"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7nwna"]
@@ -154,6 +155,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37200165, 0.28874588, 0.66
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=658871929]
 stream = ExtResource("6_7nwna")
 volume_db = -10.0
+
+[node name="Gravityshift Power-up" parent="." unique_id=1348873759 instance=ExtResource("6_7nwna")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7278047, 0.5523484, 5.87885)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
