@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1j4s28wfhcvq"]
 
-[ext_resource type="Script" uid="uid://cj72igmoy6ul2" path="res://scenes/world_weapons_testing.gd" id="1_06w64"]
+[ext_resource type="Script" uid="uid://cj72igmoy6ul2" path="res://scenes/Audric's Test Stuff/world_weapons_testing.gd" id="1_06w64"]
 [ext_resource type="Texture2D" uid="uid://c4dk7vc0tehju" path="res://scenes/eso0932a.jpg" id="2_5dapn"]
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_rfvw5"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://scenes/enemy.tscn" id="4_8girb"]

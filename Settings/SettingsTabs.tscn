@@ -115,7 +115,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1161000586]
 layout_mode = 2
-theme_override_constants/outline_size = 16
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
 text = "Master Volume"
 
@@ -131,7 +131,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=520002801]
 layout_mode = 2
-theme_override_constants/outline_size = 16
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
 text = "SFX Volume"
 
@@ -146,7 +146,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="TabContainer/Audio/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=2041536335]
 layout_mode = 2
-theme_override_constants/outline_size = 16
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
 text = "BGM Volume"
 

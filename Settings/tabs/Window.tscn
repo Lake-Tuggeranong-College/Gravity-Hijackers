@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dxmhibqaibu4y"]
+
+[ext_resource type="PackedScene" uid="uid://dgxxxoxaofxu2" path="res://Settings/tabs/Video.tscn" id="1_1cocu"]
+[ext_resource type="Script" uid="uid://ddejybc6cx0d2" path="res://Settings/tabs/Scripts/window.gd" id="2_qbkpt"]
+
+[node name="Window" unique_id=1397301679 instance=ExtResource("1_1cocu")]
+script = ExtResource("2_qbkpt")
