@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8ka2ui7sq36p" path="res://addons/kenney_particle_pack/circle_05.png" id="3_hbot1"]
 [ext_resource type="PackedScene" uid="uid://5k1o5ctvtah6" path="res://scenes/enemy.tscn" id="3_nule3"]
 [ext_resource type="PackedScene" uid="uid://b42vujo3qngpl" path="res://scenes/gravityshift_power_up.tscn" id="6_7nwna"]
+[ext_resource type="AudioStream" uid="uid://bx2vjggij13yq" path="res://assets/sound/theme finished-ish.mp3" id="6_7nwna"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7nwna"]
 panorama = ExtResource("2_myy55")
@@ -102,13 +103,12 @@ mouse_filter = 2
 
 [node name="Crosshair" type="TextureRect" parent="CanvasLayer/HUD" unique_id=1182405279]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 1472.0
+offset_bottom = 1052.0
 scale = Vector2(0.03, 0.03)
-pivot_offset = Vector2(576, 324)
+pivot_offset = Vector2(-8, -8)
 texture = ExtResource("3_hbot1")
 stretch_mode = 5
 
@@ -117,10 +117,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 330.0
-offset_top = 70.0
-offset_right = -330.0
-offset_bottom = -536.0
+offset_left = 1384.0
+offset_top = 1000.0
+offset_right = -52.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ujyws")
@@ -132,11 +132,12 @@ show_percentage = false
 [node name="AmmoDisplay" type="Label" parent="CanvasLayer/HUD" unique_id=615191762]
 layout_mode = 0
 offset_left = 64.0
-offset_top = 568.0
-offset_right = 160.0
-offset_bottom = 610.0
-theme_override_font_sizes/font_size = 30
+offset_top = 1008.0
+offset_right = 192.0
+offset_bottom = 1064.0
+theme_override_font_sizes/font_size = 40
 text = "15 / 15"
+vertical_alignment = 1
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1971673780]
 _spawnable_scenes = PackedStringArray("uid://xcjrjq5cbn7y")
@@ -149,6 +150,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00742, 1.03476, 0.74423)
 navigation_mesh = SubResource("NavigationMesh_rmptm")
 
 [node name="Environment" parent="NavigationRegion3D" unique_id=332111882 instance=ExtResource("2_fr3vy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37200165, 0.28874588, 0.66145325)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=658871929]
+stream = ExtResource("6_7nwna")
+volume_db = -10.0
 
 [node name="Gravityshift Power-up" parent="." unique_id=1348873759 instance=ExtResource("6_7nwna")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7278047, 0.5523484, 5.87885)

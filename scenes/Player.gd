@@ -11,10 +11,13 @@ signal health_changed(health_value)
 @onready var gravity_multiplier = 1.0
 @onready var World = ("res://scenes/world.gd")
 @onready var ammo_display = World.worldNode.hud.get_node("AmmoDisplay")
+@onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
 
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
 @export_range(5, 10, 0.1) var CROUCH_SPEED : float = 7.0
+
+@onready var ammo_display = Global.worldNode.hud.get_node("AmmoDisplay")
 
 var health = 3
 var ammo_count = 15
@@ -50,11 +53,19 @@ func _unhandled_input(event):
 	
 	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot" and ammo_count > 0:
 		upd_ammo(-1)
-		
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
-			var hit_player = raycast.get_collider()
-			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+			var hit_obj = raycast.get_collider()
+			var hit_coords = raycast.get_collision_point()
+			print("ray hit ", hit_obj.name, " at ", hit_coords)
+			# instance new damage count billboard gui where ray collides
+			var new_damage_billboard = damage_billboard.instantiate()
+			Global.worldNode.add_child(new_damage_billboard)
+			new_damage_billboard.position = Vector3(hit_coords)
+			print(new_damage_billboard.position, new_damage_billboard.get_parent())
+			# damage player
+			if hit_obj.name == "Player":
+				hit_obj.receive_damage.rpc_id(hit_obj.get_multiplayer_authority())
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
@@ -116,6 +127,7 @@ func _physics_process(delta):
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
+	$AudioStreamPlayer3D.play()
 	muzzle_flash.restart()
 	muzzle_flash.emitting = true
 
