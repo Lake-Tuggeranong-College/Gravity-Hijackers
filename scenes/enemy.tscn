@@ -6,6 +6,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bkvtw"]
 
+
 [node name="Enemy" type="CharacterBody3D" unique_id=748982831 groups=["enemy"]]
 collision_layer = 2
 script = ExtResource("1_phvpf")
@@ -23,3 +24,4 @@ shape = SubResource("CapsuleShape3D_bkvtw")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1806497813]
 
 [connection signal="health_changed" from="." to="." method="_on_health_changed"]
+

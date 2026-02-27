@@ -6,7 +6,13 @@ signal health_changed(health_value)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
+@onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+#@onready var current_gravity = default_gravity
+@onready var gravity_multiplier = 1.0
+@onready var World = ("res://scenes/world.gd")
+@onready var ammo_display = World.worldNode.hud.get_node("AmmoDisplay")
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
+@onready var hit_marker = preload("res://scenes/HitMarker.tscn")
 
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
@@ -22,9 +28,6 @@ var reloading = false
 var SPEED = 5.5
 const JUMP_VELOCITY = 10.0
 const LOOK_SPEED = 5 # Adjust as needed for controller comfort
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 20.0
 
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
@@ -52,16 +55,31 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot" and ammo_count > 0:
 		upd_ammo(-1)
 		play_shoot_effects.rpc()
+		
 		if raycast.is_colliding():
 			var hit_obj = raycast.get_collider()
 			var hit_coords = raycast.get_collision_point()
 			print("ray hit ", hit_obj.name, " at ", hit_coords)
+			
+			# avoid nesting
+			if !hit_obj.is_in_group("Player") and !hit_obj.is_in_group("enemy"):
+				return
+			
+			# instance new client side hitmarker gui
+			var new_hit_marker = hit_marker.instantiate()
+			Global.worldNode.get_node("CanvasLayer/HUD").add_child(new_hit_marker)
+			new_hit_marker.position = Vector2(
+				(get_viewport().size.x / 2) - (new_hit_marker.size.x / 2), 
+				(get_viewport().size.y / 2) - (new_hit_marker.size.y / 2)
+			)
+			new_hit_marker.scale = Vector2(0.5, 0.5)
 			# instance new damage count billboard gui where ray collides
 			var new_damage_billboard = damage_billboard.instantiate()
 			Global.worldNode.add_child(new_damage_billboard)
 			new_damage_billboard.position = Vector3(hit_coords)
 			print(new_damage_billboard.position, new_damage_billboard.get_parent())
-			# damage player
+			
+			# damage player only (enemy has no receive damage method)
 			if hit_obj.name == "Player":
 				hit_obj.receive_damage.rpc_id(hit_obj.get_multiplayer_authority())
 
@@ -70,7 +88,7 @@ func _physics_process(delta):
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		velocity.y -= default_gravity * gravity_multiplier * delta
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("player_jump") and is_on_floor():
