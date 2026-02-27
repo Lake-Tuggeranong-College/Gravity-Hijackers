@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgxemvoq81cu5"
-path.s3tc="res://.godot/imported/shotgun4_Image_4.png-56606e8c92ecf1612d0b773f654ae92e.s3tc.ctex"
+uid="uid://dyhojeicarc3h"
+path.s3tc="res://.godot/imported/shotgun4_Image_13.png-fb5c7d3f801ee200d0ba4853eac6dd17.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "dcda652562b828eb77fe865472583b27"
+"md5": "332739b198097f9a68bf7777ecc61119"
 }
 
 [deps]
 
-source_file="res://models/shotgun4_Image_4.png"
-dest_files=["res://.godot/imported/shotgun4_Image_4.png-56606e8c92ecf1612d0b773f654ae92e.s3tc.ctex"]
+source_file="res://models/Shotgun_Renders/shotgun4_Image_13.png"
+dest_files=["res://.godot/imported/shotgun4_Image_13.png-fb5c7d3f801ee200d0ba4853eac6dd17.s3tc.ctex"]
 
 [params]
 
@@ -30,7 +30,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=8
-roughness/src_normal="res://models/shotgun4_Image_5.png"
+roughness/src_normal="res://models/shotgun4_Image_14.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

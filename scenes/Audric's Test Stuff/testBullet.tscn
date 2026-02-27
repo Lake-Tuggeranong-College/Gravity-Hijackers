@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3xmqjhowsitf"]
 
-[ext_resource type="Script" uid="uid://dymos46rfdufr" path="res://scenes/test_bullet.gd" id="1_4nxw0"]
+[ext_resource type="Script" uid="uid://dymos46rfdufr" path="res://scenes/Audric's Test Stuff/test_bullet.gd" id="1_4nxw0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4tan"]
 

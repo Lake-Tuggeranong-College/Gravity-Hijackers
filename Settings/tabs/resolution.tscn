@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cfda3ad86yy2n"]
+
+[ext_resource type="PackedScene" uid="uid://dgxxxoxaofxu2" path="res://Settings/tabs/Video.tscn" id="1_x6aj5"]
+
+[node name="Resolution" unique_id=1397301679 instance=ExtResource("1_x6aj5")]

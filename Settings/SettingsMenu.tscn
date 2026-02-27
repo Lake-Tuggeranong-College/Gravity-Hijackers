@@ -26,6 +26,7 @@ theme_override_constants/separation = -20
 
 [node name="SettingsTabs" parent="MarginContainer/VBoxContainer" unique_id=855484945 instance=ExtResource("1_mgv0j")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=992483205]
 layout_mode = 2

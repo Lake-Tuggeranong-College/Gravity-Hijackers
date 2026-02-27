@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce00qwa76mg4j"
-path.s3tc="res://.godot/imported/shotgun4_Image_9.jpg-3d8f8da429b03c789a50bad56f002b0b.s3tc.ctex"
+uid="uid://c7ddjbnoyfjpl"
+path.s3tc="res://.godot/imported/shotgun4_Image_0.jpg-bb0b9eec8e75959fd101094f7d88ea52.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "2c25d1cfdc242d603c8f0d3117371923"
+"md5": "69417944e6980d601b41ef590cf27040"
 }
 
 [deps]
 
-source_file="res://models/shotgun4_Image_9.jpg"
-dest_files=["res://.godot/imported/shotgun4_Image_9.jpg-3d8f8da429b03c789a50bad56f002b0b.s3tc.ctex"]
+source_file="res://models/Shotgun_Renders/shotgun4_Image_0.jpg"
+dest_files=["res://.godot/imported/shotgun4_Image_0.jpg-bb0b9eec8e75959fd101094f7d88ea52.s3tc.ctex"]
 
 [params]
 

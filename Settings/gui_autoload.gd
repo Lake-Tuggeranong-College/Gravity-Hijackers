@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+
 var gui_componenets = [
 	"res://Settings/tabs/Video.tscn"
 ]
@@ -21,3 +22,8 @@ func _ready():
 		var new_scene = load(i).instantiate()
 		add_child(new_scene)
 		new_scene.hide()
+
+func center_window():
+	var screen_center = DisplayServer.screen_get_position() + DisplayServer.screen_get_size() / 2
+	var window_size = get_window().get_size_with_decorations()
+	get_window().set_position(screen_center - window_size /2)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://do81yup25ytml"]
 
-[ext_resource type="Script" uid="uid://bd7n5wpqg5p2e" path="res://scenes/player_weapon_testing.gd" id="1_uluio"]
-[ext_resource type="PackedScene" uid="uid://dqobsdcrfwvgc" path="res://shotgun_4.tscn" id="2_7vall"]
+[ext_resource type="Script" uid="uid://bd7n5wpqg5p2e" path="res://scenes/Audric's Test Stuff/player_weapon_testing.gd" id="1_uluio"]
+[ext_resource type="PackedScene" uid="uid://dqobsdcrfwvgc" path="res://models/shotgun_4.tscn" id="2_7vall"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="4_xdh32"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xk8km"]
