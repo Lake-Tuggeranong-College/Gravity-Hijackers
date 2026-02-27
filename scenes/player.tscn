@@ -259,13 +259,14 @@ properties/2/spawn = true
 properties/2/replication_mode = 1
 
 
+
 [sub_resource type="BoxMesh" id="BoxMesh_qhqgy"]
 
 [node name="Player" type="CharacterBody3D" unique_id=820130408 groups=["Player"]]
 
+
 collision_layer = 2
 script = ExtResource("1_2v3wm")
-CROUCH_SPEED = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1832600017]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
