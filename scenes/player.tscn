@@ -260,7 +260,6 @@ properties/2/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D" unique_id=820130408]
 
-[sub_resource type="BoxMesh" id="BoxMesh_qhqgy"]
 
 [node name="Player" type="CharacterBody3D" unique_id=820130408 groups=["Player"]]
 
