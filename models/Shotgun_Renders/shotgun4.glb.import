@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://vxgaf51huyst"
-path="res://.godot/imported/shotgun4.glb-9d4b4316eff11f302cae493b8b695cca.scn"
+path="res://.godot/imported/shotgun4.glb-7d25474b0523bce60069b7357feebf8d.scn"
 
 [deps]
 
-source_file="res://models/shotgun4.glb"
-dest_files=["res://.godot/imported/shotgun4.glb-9d4b4316eff11f302cae493b8b695cca.scn"]
+source_file="res://models/Shotgun_Renders/shotgun4.glb"
+dest_files=["res://.godot/imported/shotgun4.glb-7d25474b0523bce60069b7357feebf8d.scn"]
 
 [params]
 
