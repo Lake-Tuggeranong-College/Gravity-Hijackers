@@ -155,9 +155,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37200165, 0.28874588, 0.66
 stream = ExtResource("6_7nwna")
 volume_db = -10.0
 
-[node name="Gravityshift Power-up" parent="." unique_id=1348873759]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7278047, 0.5523484, 5.87885)
-
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]

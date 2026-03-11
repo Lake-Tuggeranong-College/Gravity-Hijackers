@@ -20,6 +20,7 @@ var Crouchstate : bool = false
 
 var health = 3
 var ammo_count = 15
+@export var team: int
 
 var reloading = false
 
