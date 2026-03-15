@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://c5835nuxf3t82"]
 
 [ext_resource type="PackedScene" uid="uid://dr2k3s3nd4bmc" path="res://Settings/tabs/Audio.tscn" id="1_a3ihr"]
-[ext_resource type="PackedScene" uid="uid://dgxxxoxaofxu2" path="res://Settings/tabs/Video.tscn" id="1_yxlfj"]
+[ext_resource type="PackedScene" uid="uid://dxmhibqaibu4y" path="res://Settings/tabs/Window.tscn" id="1_u0o3y"]
 [ext_resource type="PackedScene" uid="uid://eg82xoewjyis" path="res://Settings/tabs/Keybinds.tscn" id="2_hc7o7"]
+[ext_resource type="PackedScene" uid="uid://cfda3ad86yy2n" path="res://Settings/tabs/resolution.tscn" id="2_u0o3y"]
 
 [node name="Control" type="Control" unique_id=1574484243]
 layout_mode = 3
@@ -79,7 +80,10 @@ size_flags_vertical = 3
 theme_override_constants/separation = 128
 alignment = 1
 
-[node name="Video" parent="TabContainer/Video/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1397301679 instance=ExtResource("1_yxlfj")]
+[node name="Window" parent="TabContainer/Video/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1397301679 instance=ExtResource("1_u0o3y")]
+layout_mode = 2
+
+[node name="Resolution" parent="TabContainer/Video/MarginContainer/ScrollContainer/VBoxContainer" unique_id=78097874 instance=ExtResource("2_u0o3y")]
 layout_mode = 2
 
 [node name="Audio" type="TabBar" parent="TabContainer" unique_id=2140110700]

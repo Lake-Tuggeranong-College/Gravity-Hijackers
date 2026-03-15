@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://cfda3ad86yy2n"]
 
 [ext_resource type="PackedScene" uid="uid://dgxxxoxaofxu2" path="res://Settings/tabs/Video.tscn" id="1_x6aj5"]
+[ext_resource type="Script" uid="uid://ceoxu16chkasc" path="res://Settings/tabs/Scripts/resolution.gd" id="2_j6r5b"]
 
 [node name="Resolution" unique_id=1397301679 instance=ExtResource("1_x6aj5")]
+script = ExtResource("2_j6r5b")
+
+[node name="Label" parent="HBoxContainer" parent_id_path=PackedInt32Array(844172330) index="0" unique_id=808120218]
+text = "Resolution "

@@ -9,8 +9,6 @@ signal health_changed(health_value)
 @onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #@onready var current_gravity = default_gravity
 @onready var gravity_multiplier = 1.0
-@onready var World = ("res://scenes/world.gd")
-@onready var ammo_display = World.worldNode.hud.get_node("AmmoDisplay")
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
 @onready var hit_marker = preload("res://scenes/HitMarker.tscn")
 
