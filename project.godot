@@ -39,6 +39,8 @@ project/assembly_name="MultiplayerFPSTemplate"
 [global_group]
 
 Player=""
+Team1=""
+Team2=""
 
 [input]
 
