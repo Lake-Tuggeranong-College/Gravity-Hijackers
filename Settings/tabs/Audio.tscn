@@ -17,16 +17,6 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 
-[node name="Master Volume Label" type="Label" parent="HBoxContainer" unique_id=863821076]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "Master Volume"
-horizontal_alignment = 1
-
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer" unique_id=238052955]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -34,7 +24,7 @@ size_flags_horizontal = 4
 [node name="MasterVolume" type="HSlider" parent="HBoxContainer" unique_id=55690602]
 custom_minimum_size = Vector2(200, 32)
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 4
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.001

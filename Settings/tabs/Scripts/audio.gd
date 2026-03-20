@@ -1,6 +1,5 @@
 extends Control
 
-@onready var Master_volume_label = $"HBoxContainer/Master Volume Label" as Label
 @onready var Master_volume_num = $"HBoxContainer/Master Volume Number" as Label
 @onready var Master_slider = $HBoxContainer/MasterVolume as HSlider
 
@@ -12,10 +11,7 @@ var bus_index : int = 100
 func _ready():
 	Master_slider.value_changed.connect(_on_value_changed)
 	get_bus_by_index()
-	set_name_label_text()
 
-func set_name_label_text():
-	Master_volume_label.text = str(bus_name) + " Volume"
 
 func set_num_label_text() -> void:
 	Master_volume_num.text = str(Master_slider.value * 100)

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b4n510qb3x7sf"]
+
+[ext_resource type="Script" uid="uid://q34dclaelnu4" path="res://scenes/hit_marker.gd" id="1_dx77d"]
+
+[node name="HitMarker" type="Control" unique_id=525775285]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+rotation = 0.7853982
+pivot_offset = Vector2(100, 100)
+mouse_filter = 2
+script = ExtResource("1_dx77d")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1357429894]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -4.0
+offset_top = 60.0
+offset_right = 4.0
+offset_bottom = 80.0
+grow_horizontal = 2
+pivot_offset = Vector2(4, 20)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=47562653]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -100.0
+offset_right = 4.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 3.1415927
+pivot_offset = Vector2(4, 20)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1626032638]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 76.0
+offset_top = -20.0
+offset_right = 84.0
+grow_vertical = 2
+rotation = 4.712389
+pivot_offset = Vector2(4, 20)
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1675025701]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -20.0
+offset_right = -76.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5707964
+pivot_offset = Vector2(4, 20)
