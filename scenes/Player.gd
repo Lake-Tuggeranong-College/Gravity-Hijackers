@@ -6,11 +6,17 @@ signal health_changed(health_value)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
-@onready var ammo_display = $Camera3D/AmmoDisplay
 
+var Crouchstate : bool = false
+@export var ANIMATIONPLAYER : AnimationPlayer
+@export_range(5, 10, 0.1) var CROUCH_SPEED : float = 7.0
+
+@onready var ammo_display = Global.worldNode.hud.get_node("AmmoDisplay")
 
 var health = 3
 var ammo_count = 15
+
+var reloading = false
 
 var SPEED = 5.5
 const JUMP_VELOCITY = 10.0
@@ -20,7 +26,6 @@ const LOOK_SPEED = 5 # Adjust as needed for controller comfort
 var gravity = 20.0
 
 func _enter_tree():
-	print(name)
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
@@ -40,17 +45,24 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * .005)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
 	
-	if Input.is_action_just_pressed("reload"):
-		await get_tree().create_timer(1).timeout
+	if Input.is_action_just_pressed("reload") and !reloading and anim_player.current_animation != "shoot":
 		upd_ammo(0, true) # call reload update
 	
 	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot" and ammo_count > 0:
 		upd_ammo(-1)
-		
 		play_shoot_effects.rpc()
 		if raycast.is_colliding():
-			var hit_player = raycast.get_collider()
-			hit_player.receive_damage.rpc_id(hit_player.get_multiplayer_authority())
+			var hit_obj = raycast.get_collider()
+			var hit_coords = raycast.get_collision_point()
+			print("ray hit ", hit_obj.name, " at ", hit_coords)
+			# instance new damage count billboard gui where ray collides
+			var new_damage_billboard = damage_billboard.instantiate()
+			Global.worldNode.add_child(new_damage_billboard)
+			new_damage_billboard.position = Vector3(hit_coords)
+			print(new_damage_billboard.position, new_damage_billboard.get_parent())
+			# damage player
+			if hit_obj.name == "Player":
+				hit_obj.receive_damage.rpc_id(hit_obj.get_multiplayer_authority())
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
@@ -60,13 +72,17 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("player_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	if Input.is_action_pressed("player_sprint"):
 		SPEED = 8
 	else:
 		SPEED = 5.5
+
+	if Input.is_action_just_pressed("player_crouch"):
+		print("crouch")
+		crouch()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -102,10 +118,13 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+
+
 @rpc("call_local")
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play("shoot")
+	$AudioStreamPlayer3D.play()
 	muzzle_flash.restart()
 	muzzle_flash.emitting = true
 
@@ -123,7 +142,23 @@ func _on_animation_player_animation_finished(anim_name):
 
 func upd_ammo(num: int, reload: bool = false):
 	if reload:
+		reloading = true
+		Global.worldNode.hud.get_node("Crosshair").hide()
+		await get_tree().create_timer(1).timeout
+		Global.worldNode.hud.get_node("Crosshair").show()
 		ammo_count = 15
+		reloading = false
 	else:
 		ammo_count += num
 	ammo_display.text = "%d / 15" % ammo_count
+
+func crouch():
+	if Crouchstate == true:
+		if Input.is_action_just_pressed("player_crouch"):
+			anim_player.play("Crouch", -1, -CROUCH_SPEED, true)
+			Crouchstate = false
+	elif Crouchstate == false:
+		if Input.is_action_just_pressed("player_crouch"):
+			anim_player.play("Crouch", -1, CROUCH_SPEED)
+			Crouchstate = true
+	

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b3xmqjhowsitf"]
+
+[ext_resource type="Script" uid="uid://dymos46rfdufr" path="res://scenes/test_bullet.gd" id="1_4nxw0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4tan"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_781xo"]
+albedo_color = Color(0.295867, 0.295866, 0.295866, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6obvm"]
+radius = 0.872472
+height = 5.69245
+
+[node name="bullet" type="Area3D" unique_id=522462237]
+script = ExtResource("1_4nxw0")
+
+[node name="bulletmesh" type="CSGCombiner3D" parent="." unique_id=91880001]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, -0.0209351)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="bulletmesh" unique_id=297055140]
+transform = Transform3D(3.1, 0, 0, 0, -1.35505e-07, 3.1, 0, -3.1, -1.35505e-07, 0, 0, -0.0758189)
+radius = 1.0
+height = 4.434
+sides = 21
+material = SubResource("StandardMaterial3D_y4tan")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="bulletmesh" unique_id=257331552]
+transform = Transform3D(3.1, 0, 0, 0, -1.35505e-07, 3.1, 0, -3.1, -1.35505e-07, 0, 0, 7.3012)
+radius = 1.07435
+height = 0.283773
+sides = 21
+material = SubResource("StandardMaterial3D_781xo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=438889104]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 0, -0.0225677, -0.210455)
+shape = SubResource("CapsuleShape3D_6obvm")
+
+[node name="Timer" type="Timer" parent="." unique_id=1019084007]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="destroy"]
