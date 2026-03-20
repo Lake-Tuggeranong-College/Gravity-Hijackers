@@ -78,7 +78,8 @@ func _unhandled_input(event):
 			print(new_damage_billboard.position, new_damage_billboard.get_parent())
 			
 			# damage player only (enemy has no receive damage method)
-			if hit_obj.name == "Player":
+			if hit_obj in get_tree().get_nodes_in_group("Player"):
+				print("hit")
 				hit_obj.receive_damage.rpc_id(hit_obj.get_multiplayer_authority())
 
 func _physics_process(delta):
