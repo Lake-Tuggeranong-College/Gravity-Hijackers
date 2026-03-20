@@ -4,9 +4,12 @@
 
 [node name="Control" unique_id=887529520 instance=ExtResource("1_8201i")]
 
+[node name="Label" parent="HBoxContainer" parent_id_path=PackedInt32Array(212681061) index="0" unique_id=1402582745]
+text = "FOV"
+
 [node name="HSlider" type="HSlider" parent="HBoxContainer" parent_id_path=PackedInt32Array(212681061) index="2" unique_id=1995903485]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 4
 min_value = 0.1
 max_value = 1.0
