@@ -164,18 +164,30 @@ draw_pass_1 = SubResource("PlaneMesh_b2g4i")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1804038237]
 physics_interpolation_mode = 2
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
 target_position = Vector3(0, 0, -50)
 collision_mask = 2
 
-[node name="AmmoDisplay" type="Label" parent="Camera3D" unique_id=293892308]
-offset_left = 64.0
-offset_top = 568.0
-offset_right = 160.0
-offset_bottom = 610.0
-theme_override_font_sizes/font_size = 30
-text = "15 / 15"
-metadata/_edit_use_anchors_ = true
+[node name="quadshot_container" type="Node3D" parent="Camera3D" unique_id=470854862]
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D/quadshot_container" unique_id=2073905432]
+physics_interpolation_mode = 2
+target_position = Vector3(0, 0, -50)
+collision_mask = 2
+
+[node name="RayCast3D2" type="RayCast3D" parent="Camera3D/quadshot_container" unique_id=994127609]
+physics_interpolation_mode = 2
+target_position = Vector3(0, 0, -50)
+collision_mask = 2
+
+[node name="RayCast3D3" type="RayCast3D" parent="Camera3D/quadshot_container" unique_id=148613156]
+physics_interpolation_mode = 2
+target_position = Vector3(0, 0, -50)
+collision_mask = 2
+
+[node name="RayCast3D4" type="RayCast3D" parent="Camera3D/quadshot_container" unique_id=1795603764]
+physics_interpolation_mode = 2
+target_position = Vector3(0, 0, -50)
+collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1889766177]
 libraries/ = SubResource("AnimationLibrary_p6wdk")

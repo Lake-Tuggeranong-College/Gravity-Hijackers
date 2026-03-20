@@ -6,6 +6,7 @@ signal health_changed(health_value)
 @onready var anim_player = $AnimationPlayer
 @onready var muzzle_flash = $Camera3D/shotgun4/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
+@onready var quadcast = get_node("Camera3D/quadshot_container").get_children()
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
 @onready var bullet_spawn
 var Crouchstate : bool = false
@@ -31,7 +32,8 @@ func _enter_tree():
 
 func _ready():
 	if not is_multiplayer_authority(): return
-	bullet_spawn = get_node("bulletspawn")
+	ammo_display.text = "4 / 4"
+	
 	
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -58,29 +60,31 @@ func _unhandled_input(event):
 			var hit_obj = raycast.get_collider()
 			var hit_coords = raycast.get_collision_point()
 			print("ray hit ", hit_obj.name, " at ", hit_coords)
-			# instance new damage count billboard gui where ray collides
+			#instance new damage count billboard gui where ray collides
 			var new_damage_billboard = damage_billboard.instantiate()
 			Global.worldNode.add_child(new_damage_billboard)
 			new_damage_billboard.position = Vector3(hit_coords)
 			print(new_damage_billboard.position, new_damage_billboard.get_parent())
-			# damage player
+			 #damage player
 			if hit_obj.name == "Player":
 				hit_obj.receive_damage.rpc_id(hit_obj.get_multiplayer_authority())
 	if Input.is_action_just_pressed("shoot_all") and anim_player.current_animation != "shoot_all" and ammo_count > 0:
 		upd_ammo(-4)
 		play_shoot_effects.rpc()
-		if raycast.is_colliding():
-			var hit_obj = raycast.get_collider()
-			var hit_coords = raycast.get_collision_point()
-			print("ray hit ", hit_obj.name, " at ", hit_coords)
-			# instance new damage count billboard gui where ray collides
-			var new_damage_billboard = damage_billboard.instantiate()
-			Global.worldNode.add_child(new_damage_billboard)
-			new_damage_billboard.position = Vector3(hit_coords)
-			print(new_damage_billboard.position, new_damage_billboard.get_parent())
-			# damage player
-			if hit_obj.name == "Player":
-				hit_obj.receive_damage.rpc_id(hit_obj.get_multiplayer_authority())
+		for ray in quadcast:
+			ray.target_position = Vector3(randi_range(-5,5), randi_range(-5,5), -50)
+			if ray.is_colliding():
+				var hit_obj = ray.get_collider()
+				var hit_coords = ray.get_collision_point()
+				print("ray hit ", hit_obj.name, " at ", hit_coords)
+				# instance new damage count billboard gui where ray collides
+				var new_damage_billboard = damage_billboard.instantiate()
+				Global.worldNode.add_child(new_damage_billboard)
+				new_damage_billboard.position = Vector3(hit_coords)
+				print(new_damage_billboard.position, new_damage_billboard.get_parent())
+				# damage player
+				if hit_obj.name == "Player":
+					hit_obj.receive_damage.rpc_id(hit_obj.get_multiplayer_authority())
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
