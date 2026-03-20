@@ -24,6 +24,10 @@ config/icon="uid://el1jrwdua5i0"
 
 project/assembly_name="MultiplayerFPSTemplate"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 Player=""
