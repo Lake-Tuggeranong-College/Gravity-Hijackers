@@ -33,3 +33,11 @@ func save_data():
 	file.store_var(game_data)
 	file.close()
 	
+
+func toggle_vsync(value):
+	if value == 1:
+		DisplayServer.VSyncMode.VSYNC_ENABLED
+	elif value == 2:
+		DisplayServer.VSyncMode.VSYNC_ADAPTIVE
+	elif value == 0:
+		DisplayServer.VSyncMode.VSYNC_DISABLED
