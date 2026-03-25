@@ -37,9 +37,15 @@ window/handheld/orientation=1
 
 project/assembly_name="MultiplayerFPSTemplate"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 Player=""
+Team1=""
+Team2=""
 
 [input]
 
