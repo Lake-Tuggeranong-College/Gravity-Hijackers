@@ -41,3 +41,6 @@ func toggle_vsync(value):
 		DisplayServer.VSyncMode.VSYNC_ADAPTIVE
 	elif value == 0:
 		DisplayServer.VSyncMode.VSYNC_DISABLED
+
+func update_fov(value):
+	emit_signal("fov_updated", value)

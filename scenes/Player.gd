@@ -11,6 +11,7 @@ signal health_changed(health_value)
 @onready var gravity_multiplier = 1.0
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
 @onready var hit_marker = preload("res://scenes/HitMarker.tscn")
+@onready var camera_3d: Camera3D = $Camera3D
 
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
@@ -32,6 +33,8 @@ func _enter_tree():
 
 func _ready():
 	if not is_multiplayer_authority(): return
+	
+	Save.connect("fov_updated", )
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
