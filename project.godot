@@ -43,6 +43,8 @@ import/blender/enabled=false
 [global_group]
 
 Player=""
+Team1=""
+Team2=""
 
 [input]
 

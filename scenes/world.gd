@@ -10,7 +10,7 @@ var world_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	#if is_on_floor():
 		#world_gravity = 0
 
-@onready var Player = preload("res://scenes/player.tscn")
+@onready var playerScene = preload("res://scenes/player.tscn")
 
 var tracked = false
 var player
@@ -59,7 +59,7 @@ func _on_multiplayer_spawner_spawned(node):
 #	print("Success! Join Address: %s" % upnp.query_external_address())
 
 func _physics_process(delta):
-	if tracked:
+	if tracked and player:
 		get_tree().call_group("enemy", "update_target_location", player.global_transform.origin)
 
 func _unhandled_input(event):
@@ -74,17 +74,36 @@ func _on_single_player_button_pressed():
 
 
 func add_player(peer_id):
-	player = Player.instantiate()
+	player = playerScene.instantiate()
 	player.name = str(peer_id)
 	add_child(player)
 	tracked = true
 	if player.is_multiplayer_authority():
 		player.health_changed.connect(update_health_bar)
+	
+	if len(get_tree().get_nodes_in_group("Team1")) == len(get_tree().get_nodes_in_group("Team2")):
+		print("teams are equal. assigning random team for new player")
+		var randSelect = randi_range(1, 2)
+		if randSelect == 1:
+			player.add_to_group("Team1")
+		else:
+			player.add_to_group("Team2")
+	elif len(get_tree().get_nodes_in_group("Team1")) < len(get_tree().get_nodes_in_group("Team2")):
+		print("team 1 has less players than team 2. adding player to team 1")
+		player.add_to_group("Team1")
+	else: # team 2 has less players than team 1 if this stage is reached
+		print("team 2 has less players than team 1. adding player to team 2")
+		player.add_to_group("Team2")
+	print("player joined. new teams = ", get_tree().get_nodes_in_group("Team1"), " ", get_tree().get_nodes_in_group("Team2"))
 
 func remove_player(peer_id):
 	var player = get_node_or_null(str(peer_id))
-	if player:
-		player.queue_free()
+	if not player:
+		return
+	
+	player.queue_free()
+	await get_tree().create_timer(0.1).timeout # breifly pause thread so print statement below returns accurate info
+	print("player left. new teams = ", get_tree().get_nodes_in_group("Team1"), " ", get_tree().get_nodes_in_group("Team2"))
 
 func update_health_bar(health_value):
 	health_bar.value = health_value
