@@ -10,7 +10,6 @@ func add_resolutions():
 	for r in GuiAutoload.resolutions:
 		resolutions_option_button.add_item(r)
 	
-
 func update_button_values():
 	var window_size_string = str(get_window().size.x, "x", get_window().size.y)
 	var resolutions_index = GuiAutoload.resolutions.keys().find(window_size_string)
