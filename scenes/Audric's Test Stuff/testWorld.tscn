@@ -90,6 +90,10 @@ layout_mode = 2
 placeholder_text = "Enter Address to Join Here"
 alignment = 1
 
+[node name="Button" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer" unique_id=1303317660]
+layout_mode = 2
+text = "Settings"
+
 [node name="HUD" type="Control" parent="CanvasLayer" unique_id=24447867]
 visible = false
 layout_mode = 3
@@ -155,10 +159,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37200165, 0.28874588, 0.66
 stream = ExtResource("6_7nwna")
 volume_db = -10.0
 
-[node name="Gravityshift Power-up" parent="." unique_id=1348873759]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7278047, 0.5523484, 5.87885)
-
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/SinglePlayer" to="." method="_on_single_player_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]

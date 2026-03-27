@@ -23,11 +23,12 @@ config/icon="uid://d0405cev35xv4"
 [autoload]
 
 Global="*uid://7r4ojokijiyj"
-GUI="*uid://c2do32wxxnnsd"
+Save="*uid://c2do32wxxnnsd"
 
 [display]
 
 window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="viewport"
 window/handheld/orientation=1
