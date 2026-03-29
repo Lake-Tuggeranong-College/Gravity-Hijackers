@@ -107,3 +107,9 @@ func remove_player(peer_id):
 
 func update_health_bar(health_value):
 	health_bar.value = health_value
+
+
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://Settings/SettingsMenu.tscn")

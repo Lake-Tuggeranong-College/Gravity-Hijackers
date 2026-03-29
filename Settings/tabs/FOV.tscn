@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ddx0id0y0i1nl"]
+
+[ext_resource type="PackedScene" uid="uid://dia6e8liro8v" path="res://Settings/tabs/GeneralSettings.tscn" id="1_8201i"]
+[ext_resource type="Script" uid="uid://c2ai4n3rvf4ad" path="res://Settings/tabs/Scripts/fov.gd" id="2_7k5af"]
+
+[node name="Control" unique_id=887529520 instance=ExtResource("1_8201i")]
+script = ExtResource("2_7k5af")
+
+[node name="Label" parent="HBoxContainer" parent_id_path=PackedInt32Array(212681061) index="0" unique_id=1402582745]
+text = "FOV"
+
+[node name="FOVSlider" type="HSlider" parent="HBoxContainer" parent_id_path=PackedInt32Array(212681061) index="2" unique_id=1995903485]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+min_value = 0.1
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[connection signal="value_changed" from="HBoxContainer/FOVSlider" to="." method="_on_fov_slider_value_changed"]
