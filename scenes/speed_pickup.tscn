@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://qyiiwlpw3rdb"]
+
+[ext_resource type="Texture2D" uid="uid://rtvb8rgvifn7" path="res://assets/images/SpeedPickup.jpeg" id="1_phx13"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2cq6"]
+albedo_texture = ExtResource("1_phx13")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wmiac"]
+
+[node name="Node3D" type="Node3D" unique_id=82090874]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=2127758414]
+material_override = SubResource("StandardMaterial3D_w2cq6")
+rings = 12
+
+[node name="Area3D" type="Area3D" parent="CSGSphere3D" unique_id=217382297]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGSphere3D/Area3D" unique_id=630843924]
+shape = SubResource("SphereShape3D_wmiac")
