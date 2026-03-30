@@ -12,6 +12,7 @@ signal health_changed(health_value)
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
 @onready var hit_marker = preload("res://scenes/HitMarker.tscn")
 @onready var camera_3d: Camera3D = $Camera3D
+@export var mouse_sensitivity = .1
 
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
@@ -35,6 +36,7 @@ func _ready():
 	if not is_multiplayer_authority(): return
 	
 	Save.connect("fov_updated", Callable(self, "_on_fov_updated"))
+	Save.connect("mouse_sens_updated", Callable(self, "mouse_sens_updated"))
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
@@ -183,3 +185,11 @@ func crouch():
 			anim_player.play("Crouch", -1, CROUCH_SPEED)
 			Crouchstate = true
 	
+
+func _on_fov_updated(value):
+	if not is_multiplayer_authority(): return
+	
+	camera.fov = value
+
+func _on_mouse_sens_updated(value):
+	mouse_sensitivity = value
