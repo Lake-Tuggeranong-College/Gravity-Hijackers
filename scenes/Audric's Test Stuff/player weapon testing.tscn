@@ -167,6 +167,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
 target_position = Vector3(0, 0, -50)
 collision_mask = 2
 
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D/RayCast3D" unique_id=1265908943]
+
+[node name="RayCast3D2" type="RayCast3D" parent="Camera3D/RayCast3D" unique_id=1240024228]
+
+[node name="RayCast3D3" type="RayCast3D" parent="Camera3D/RayCast3D" unique_id=639628225]
+
+[node name="RayCast3D4" type="RayCast3D" parent="Camera3D/RayCast3D" unique_id=1510498570]
+
 [node name="AmmoDisplay" type="Label" parent="Camera3D" unique_id=293892308]
 offset_left = 64.0
 offset_top = 568.0

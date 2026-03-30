@@ -1,20 +1,26 @@
 extends CharacterBody3D
 
 signal health_changed(health_value)
-
+#testing pull request
 @onready var camera = $Camera3D
 @onready var anim_player = $AnimationPlayer
-@onready var muzzle_flash = $Camera3D/shotgun4/MuzzleFlash
+@onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
-@onready var quadcast = get_node("Camera3D/quadshot_container").get_children()
+@onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+#@onready var current_gravity = default_gravity
+@onready var gravity_multiplier = 1.0
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
+@onready var hit_marker = preload("res://scenes/HitMarker.tscn")
+@onready var camera_3d: Camera3D = $Camera3D
+
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
 @export_range(5, 10, 0.1) var CROUCH_SPEED : float = 7.0
+
 @onready var ammo_display = Global.worldNode.hud.get_node("AmmoDisplay")
 
 var health = 3
-var ammo_count = 4
+var ammo_count = 15
 
 var reloading = false
 
@@ -22,17 +28,13 @@ var SPEED = 5.5
 const JUMP_VELOCITY = 10.0
 const LOOK_SPEED = 5 # Adjust as needed for controller comfort
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 20.0
-
 func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
 	if not is_multiplayer_authority(): return
-	ammo_display.text = "4 / 4"
 	
-	
+	Save.connect("fov_updated", Callable(self, "_on_fov_updated"))
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
@@ -54,42 +56,41 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("shoot") and anim_player.current_animation != "shoot" and ammo_count > 0:
 		upd_ammo(-1)
 		play_shoot_effects.rpc()
+		
 		if raycast.is_colliding():
 			var hit_obj = raycast.get_collider()
 			var hit_coords = raycast.get_collision_point()
 			print("ray hit ", hit_obj.name, " at ", hit_coords)
-			#instance new damage count billboard gui where ray collides
+			
+			# avoid nesting
+			if !hit_obj.is_in_group("Player") and !hit_obj.is_in_group("enemy"):
+				return
+			
+			# instance new client side hitmarker gui
+			var new_hit_marker = hit_marker.instantiate()
+			Global.worldNode.get_node("CanvasLayer/HUD").add_child(new_hit_marker)
+			new_hit_marker.position = Vector2(
+				(get_viewport().size.x / 2) - (new_hit_marker.size.x / 2), 
+				(get_viewport().size.y / 2) - (new_hit_marker.size.y / 2)
+			)
+			new_hit_marker.scale = Vector2(0.5, 0.5)
+			# instance new damage count billboard gui where ray collides
 			var new_damage_billboard = damage_billboard.instantiate()
 			Global.worldNode.add_child(new_damage_billboard)
 			new_damage_billboard.position = Vector3(hit_coords)
 			print(new_damage_billboard.position, new_damage_billboard.get_parent())
-			 #damage player
-			if hit_obj.name == "Player":
+			
+			# damage player only (enemy has no receive damage method)
+			if hit_obj in get_tree().get_nodes_in_group("Player"):
+				print("hit")
 				hit_obj.receive_damage.rpc_id(hit_obj.get_multiplayer_authority())
-	if Input.is_action_just_pressed("shoot_all") and anim_player.current_animation != "shoot_all" and ammo_count > 0:
-		upd_ammo(-4)
-		play_shoot_effects.rpc()
-		for ray in quadcast:
-			ray.target_position = Vector3(randi_range(-5,5), randi_range(-5,5), -50)
-			if ray.is_colliding():
-				var hit_obj = ray.get_collider()
-				var hit_coords = ray.get_collision_point()
-				print("ray hit ", hit_obj.name, " at ", hit_coords)
-				# instance new damage count billboard gui where ray collides
-				var new_damage_billboard = damage_billboard.instantiate()
-				Global.worldNode.add_child(new_damage_billboard)
-				new_damage_billboard.position = Vector3(hit_coords)
-				print(new_damage_billboard.position, new_damage_billboard.get_parent())
-				# damage player
-				if hit_obj.name == "Player":
-					hit_obj.receive_damage.rpc_id(hit_obj.get_multiplayer_authority())
 
 func _physics_process(delta):
 	if not is_multiplayer_authority(): return
 	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		velocity.y -= default_gravity * gravity_multiplier * delta
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("player_jump") and is_on_floor():
@@ -103,8 +104,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("player_crouch"):
 		print("crouch")
 		crouch()
-		
-
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -168,11 +167,11 @@ func upd_ammo(num: int, reload: bool = false):
 		Global.worldNode.hud.get_node("Crosshair").hide()
 		await get_tree().create_timer(1).timeout
 		Global.worldNode.hud.get_node("Crosshair").show()
-		ammo_count = 4
+		ammo_count = 15
 		reloading = false
 	else:
 		ammo_count += num
-	ammo_display.text = "%d / 4" % ammo_count
+	ammo_display.text = "%d / 15" % ammo_count
 
 func crouch():
 	if Crouchstate == true:
