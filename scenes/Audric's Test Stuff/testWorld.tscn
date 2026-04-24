@@ -105,11 +105,11 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Crosshair" type="TextureRect" parent="CanvasLayer/HUD" unique_id=1182405279]
-layout_mode = 1
-offset_left = 640.0
-offset_top = 360.0
-offset_right = 1152.0
-offset_bottom = 872.0
+layout_mode = 0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 1472.0
+offset_bottom = 1052.0
 scale = Vector2(0.03, 0.03)
 pivot_offset = Vector2(-8, -8)
 texture = ExtResource("3_hbot1")
@@ -121,7 +121,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1013.0
-offset_top = 660.0
+offset_top = 999.0
 offset_right = -24.5
 offset_bottom = -24.5
 grow_horizontal = 2
