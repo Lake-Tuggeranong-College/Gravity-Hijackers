@@ -10,17 +10,14 @@ signal health_changed(health_value)
 #@onready var current_gravity = default_gravity
 @onready var gravity_multiplier = 1.0
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
-@onready var hit_marker = preload("res://scenes/HitMarker.tscn")
 @onready var camera_3d: Camera3D = $Camera3D
-
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
 @export_range(5, 10, 0.1) var CROUCH_SPEED : float = 7.0
-
 @onready var ammo_display = Global.worldNode.hud.get_node("AmmoDisplay")
 
 var health = 3
-var ammo_count = 15
+var ammo_count = 30
 
 var reloading = false
 
@@ -67,13 +64,13 @@ func _unhandled_input(event):
 				return
 			
 			# instance new client side hitmarker gui
-			var new_hit_marker = hit_marker.instantiate()
-			Global.worldNode.get_node("CanvasLayer/HUD").add_child(new_hit_marker)
-			new_hit_marker.position = Vector2(
-				(get_viewport().size.x / 2) - (new_hit_marker.size.x / 2), 
-				(get_viewport().size.y / 2) - (new_hit_marker.size.y / 2)
-			)
-			new_hit_marker.scale = Vector2(0.5, 0.5)
+			#var new_hit_marker = hit_marker.instantiate()
+			#Global.worldNode.get_node("CanvasLayer/HUD").add_child(new_hit_marker)
+			#new_hit_marker.position = Vector2(
+				#(get_viewport().size.x / 2) - (new_hit_marker.size.x / 2), 
+				#(get_viewport().size.y / 2) - (new_hit_marker.size.y / 2)
+			#)
+			#new_hit_marker.scale = Vector2(0.5, 0.5)
 			# instance new damage count billboard gui where ray collides
 			var new_damage_billboard = damage_billboard.instantiate()
 			Global.worldNode.add_child(new_damage_billboard)
@@ -171,7 +168,7 @@ func upd_ammo(num: int, reload: bool = false):
 		reloading = false
 	else:
 		ammo_count += num
-	ammo_display.text = "%d / 15" % ammo_count
+	ammo_display.text = "%d / 30" % ammo_count
 
 func crouch():
 	if Crouchstate == true:
