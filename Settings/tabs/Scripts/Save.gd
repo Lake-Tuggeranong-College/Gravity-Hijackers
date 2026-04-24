@@ -44,3 +44,6 @@ func toggle_vsync(value):
 
 func update_fov(value):
 	emit_signal("fov_updated", value)
+
+func update_mouse_sens(value):
+	emit_signal("mouse_sens_updated", value)
