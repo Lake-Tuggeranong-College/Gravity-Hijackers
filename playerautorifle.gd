@@ -8,15 +8,10 @@ signal health_changed(health_value)
 @onready var raycast = $Camera3D/RayCast3D
 @onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #@onready var current_gravity = default_gravity
-@onready var gravity_multiplier = 2
+@onready var gravity_multiplier = 1.0
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
 @onready var hit_marker = preload("res://scenes/HitMarker.tscn")
 @onready var camera_3d: Camera3D = $Camera3D
-<<<<<<< HEAD
-@onready var speed_pickup_multiplier = 1
-=======
-@export var mouse_sensitivity = .1
->>>>>>> 195fc50e117fc2e3ef9c7cf9ed933c39b5447972
 
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
@@ -37,11 +32,9 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
-	#speed_pickup_pickedup.connect
 	if not is_multiplayer_authority(): return
 	
 	Save.connect("fov_updated", Callable(self, "_on_fov_updated"))
-	Save.connect("mouse_sens_updated", Callable(self, "mouse_sens_updated"))
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
@@ -104,7 +97,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	if Input.is_action_pressed("player_sprint"):
-		SPEED = 8 * speed_pickup_multiplier
+		SPEED = 8
 	else:
 		SPEED = 5.5
 
@@ -190,11 +183,3 @@ func crouch():
 			anim_player.play("Crouch", -1, CROUCH_SPEED)
 			Crouchstate = true
 	
-
-func _on_fov_updated(value):
-	if not is_multiplayer_authority(): return
-	
-	camera.fov = value
-
-func _on_mouse_sens_updated(value):
-	mouse_sensitivity = value
