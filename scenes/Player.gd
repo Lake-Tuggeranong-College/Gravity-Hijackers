@@ -8,10 +8,11 @@ signal health_changed(health_value)
 @onready var raycast = $Camera3D/RayCast3D
 @onready var default_gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #@onready var current_gravity = default_gravity
-@onready var gravity_multiplier = 1.0
+@onready var gravity_multiplier = 2
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
 @onready var hit_marker = preload("res://scenes/HitMarker.tscn")
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var speed_pickup_multiplier = 1
 
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
@@ -32,6 +33,7 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
+	#speed_pickup_pickedup.connect
 	if not is_multiplayer_authority(): return
 	
 	Save.connect("fov_updated", Callable(self, "_on_fov_updated"))
@@ -97,7 +99,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	if Input.is_action_pressed("player_sprint"):
-		SPEED = 8
+		SPEED = 8 * speed_pickup_multiplier
 	else:
 		SPEED = 5.5
 
