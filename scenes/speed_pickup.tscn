@@ -12,6 +12,7 @@ albedo_texture = ExtResource("1_phx13")
 script = ExtResource("1_dob6p")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=2127758414]
+layers = 2
 material_override = SubResource("StandardMaterial3D_w2cq6")
 rings = 12
 

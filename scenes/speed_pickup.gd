@@ -14,9 +14,10 @@ func _process(delta: float) -> void:
 
 
 func _on_area_3d_body_entered(body: CharacterBody3D) -> void:
-	if is_multiplayer_authority():
-		if body.name == "Player":
-			speed_pickup_pickedup.emit(2)
-			queue_free()
+	print("Entered.")
+	#if is_multiplayer_authority():
+	if is_in_group("Player"):
+		speed_pickup_pickedup.emit(2)
+		queue_free()
 	else:
 		pass # Maybe "queue_free"?
