@@ -12,11 +12,9 @@ signal health_changed(health_value)
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
 @onready var hit_marker = preload("res://scenes/HitMarker.tscn")
 @onready var camera_3d: Camera3D = $Camera3D
-<<<<<<< HEAD
+
 @onready var speed_pickup_multiplier = 1
-=======
 @export var mouse_sensitivity = .1
->>>>>>> 195fc50e117fc2e3ef9c7cf9ed933c39b5447972
 
 var Crouchstate : bool = false
 @export var ANIMATIONPLAYER : AnimationPlayer
