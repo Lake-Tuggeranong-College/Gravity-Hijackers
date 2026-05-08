@@ -35,8 +35,6 @@ func _enter_tree():
 func _ready():
 	if not is_multiplayer_authority(): return
 	
-	Save.connect("fov_updated", Callable(self, "_on_fov_updated"))
-	Save.connect("mouse_sens_updated", Callable(self, "mouse_sens_updated"))
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
@@ -141,7 +139,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-
+	_on_fov_updated(Save.game_data.FOV)
 
 @rpc("call_local")
 func play_shoot_effects():
@@ -188,7 +186,7 @@ func crouch():
 
 func _on_fov_updated(value):
 	if not is_multiplayer_authority(): return
-	
+	#print(Save.game_data.FOV)
 	camera.fov = value
 
 func _on_mouse_sens_updated(value):

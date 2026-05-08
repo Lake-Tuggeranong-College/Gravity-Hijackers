@@ -2,6 +2,9 @@ extends Node
 
 const SAVEFILE = "user://Settings.save"
 
+signal fov_updated(value)
+signal mouse_sens_updated(value)
+
 var game_data = {}
 
 func _ready():
@@ -20,7 +23,7 @@ func load_data():
 			"Music_vol": 10,
 			"SFX_vol": 10,
 			"FOV": 70,
-			"Mouse_sens": .1,
+			"Mouse_sens_Multi": .1,
 		}
 		save_data()
 	FileAccess.open(SAVEFILE, FileAccess.READ)
@@ -43,7 +46,10 @@ func toggle_vsync(value):
 		DisplayServer.VSyncMode.VSYNC_DISABLED
 
 func update_fov(value):
-	emit_signal("fov_updated", value)
+	game_data.FOV = value
+	fov_updated.emit(value)
+	print(game_data.FOV)
 
 func update_mouse_sens(value):
 	emit_signal("mouse_sens_updated", value)
+	game_data.Mouse_sens_Multi = value
