@@ -12,6 +12,8 @@ signal health_changed(health_value)
 @onready var damage_billboard = preload("res://scenes/DamageIndicator.tscn")
 @onready var hit_marker = preload("res://scenes/HitMarker.tscn")
 @onready var camera_3d: Camera3D = $Camera3D
+@onready var speed_pickup_scene = preload("res://scenes/speed_pickup.tscn")
+
 
 @onready var speed_pickup_multiplier = 1
 @export var mouse_sensitivity = .1
@@ -35,6 +37,11 @@ func _enter_tree():
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready():
+	#var speed_pickup_scene_instantiated = speed_pickup_scene.instantiate()
+	#add_child(speed_pickup_scene_instantiated)
+	#speed_pickup_scene_instantiated.speed_pickup_pickedup = 2
+	#speed_pickup_instantiated.speed_pickup_pickedup = true
+	#speed_pickup_scene.speed_pickup_pickedup.connect(speed_pickup_multiplier)
 	#speed_pickup_pickedup.connect
 	if not is_multiplayer_authority(): return
 	
