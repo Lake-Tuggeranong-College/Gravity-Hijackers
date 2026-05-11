@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://62kgqi36qg50"]
+
+[ext_resource type="PackedScene" uid="uid://bc5urmyohnj05" path="res://scenes/Audric's Test Stuff/UTARFor1ZIP.fbx" id="1_enohc"]
+
+[node name="UTARFor1ZIP" unique_id=1100559818 instance=ExtResource("1_enohc")]
