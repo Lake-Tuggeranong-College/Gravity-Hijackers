@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://c4ioskhd1ajr5"]
+
+[ext_resource type="PackedScene" uid="uid://dia6e8liro8v" path="res://Settings/tabs/GeneralSettings.tscn" id="1_cpvfq"]
+
+[node name="Control" unique_id=887529520 instance=ExtResource("1_cpvfq")]

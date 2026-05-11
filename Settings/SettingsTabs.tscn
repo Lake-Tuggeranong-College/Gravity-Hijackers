@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5835nuxf3t82"]
 
 [ext_resource type="PackedScene" uid="uid://dr2k3s3nd4bmc" path="res://Settings/tabs/Audio.tscn" id="1_a3ihr"]
+[ext_resource type="PackedScene" uid="uid://ddx0id0y0i1nl" path="res://Settings/tabs/FOV.tscn" id="1_qesc6"]
 [ext_resource type="PackedScene" uid="uid://dxmhibqaibu4y" path="res://Settings/tabs/Window.tscn" id="1_u0o3y"]
 [ext_resource type="PackedScene" uid="uid://eg82xoewjyis" path="res://Settings/tabs/Keybinds.tscn" id="2_hc7o7"]
 [ext_resource type="PackedScene" uid="uid://cfda3ad86yy2n" path="res://Settings/tabs/resolution.tscn" id="2_u0o3y"]
@@ -25,10 +26,9 @@ offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="General" type="TabBar" parent="TabContainer" unique_id=1194515287]
-visible = false
 layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
@@ -54,7 +54,19 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 128
 
+[node name="HSeparator" type="HSeparator" parent="TabContainer/General/MarginContainer/ScrollContainer/VBoxContainer" unique_id=540972796]
+layout_mode = 2
+
+[node name="Control" parent="TabContainer/General/MarginContainer/ScrollContainer/VBoxContainer" unique_id=887529520 instance=ExtResource("1_qesc6")]
+custom_minimum_size = Vector2(1000, 50)
+layout_mode = 2
+tooltip_text = "The N word"
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/General/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1425076044]
+layout_mode = 2
+
 [node name="Video" type="TabBar" parent="TabContainer" unique_id=1244973507]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
