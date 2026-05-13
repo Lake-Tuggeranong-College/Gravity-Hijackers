@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dia6e8liro8v"]
 
+[ext_resource type="Script" uid="uid://biihoulbvmco1" path="res://Settings/tabs/Scripts/general_settings.gd" id="1_gybta"]
+
 [node name="Control" type="Control" unique_id=887529520]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gybta")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=212681061]
 layout_mode = 1
