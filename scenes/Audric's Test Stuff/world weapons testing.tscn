@@ -99,11 +99,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD" unique_id=1182405279]
+[node name="Crosshair" type="TextureRect" parent="CanvasLayer/HUD" unique_id=1182405279]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 367.99997
+offset_top = 201.99998
+offset_right = 368.0
+offset_bottom = 202.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.03, 0.03)
@@ -116,10 +120,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 484.0
-offset_top = 532.0
-offset_right = -414.0
-offset_bottom = -453.0
+offset_left = 889.0
+offset_top = 2.0
+offset_right = -9.0
+offset_bottom = -983.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ujyws")
@@ -127,6 +131,16 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_cmecq")
 max_value = 3.0
 value = 3.0
 show_percentage = false
+
+[node name="AmmoDisplay" type="Label" parent="CanvasLayer/HUD" unique_id=1316298247]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 640.0
+offset_right = 192.0
+offset_bottom = 696.0
+theme_override_font_sizes/font_size = 40
+text = "15 / 15"
+vertical_alignment = 1
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1971673780]
 _spawnable_scenes = PackedStringArray("uid://xcjrjq5cbn7y")
