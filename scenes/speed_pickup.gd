@@ -1,6 +1,6 @@
 extends Node3D
 
-signal speed_pickup_pickedup()
+signal speed_pickup_pickedup(int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,7 +17,7 @@ func _on_area_3d_body_entered(body: CharacterBody3D) -> void:
 	#if is_multiplayer_authority():
 	if body.is_in_group ("Player"):
 		print("Hello, Player!")
-		speed_pickup_pickedup.emit()
+		speed_pickup_pickedup.emit(2)
 		queue_free()
 	else:
 		pass # Maybe "queue_free"?
