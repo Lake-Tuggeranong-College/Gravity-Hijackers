@@ -2,9 +2,8 @@ extends Node
 
 const SAVEFILE = "user://Settings.save"
 
-signal fov_updated(value)
-signal X_mouse_sens_updated(value)
-signal Y_mouse_sens_updated(value)
+@onready var X_Mouse_sens_Multi = 0.01
+@onready var Y_Mouse_sens_Multi = 0.01
 
 @onready var game_data = {}
 
@@ -23,8 +22,8 @@ func load_data():
 			"Music_vol": 10,
 			"SFX_vol": 10,
 			"FOV": 70,
-			"X_Mouse_sens_Multi": .1,
-			"Y_Mouse_sens_Multi": .1,
+			"X_Mouse_sens_Multi": .01,
+			"Y_Mouse_sens_Multi": .01,
 		}
 		save_data()
 	FileAccess.open(SAVEFILE, FileAccess.READ)
@@ -48,18 +47,17 @@ func toggle_vsync(value):
 
 func update_fov(value):
 	game_data.FOV = value
-	fov_updated.emit(value)
 	print(game_data.FOV)
 	save_data()
 
 func X_update_mouse_sens(value):
-	X_mouse_sens_updated.emit(value)
+	X_Mouse_sens_Multi = value
 	game_data.X_Mouse_sens_Multi = value
 	print(game_data.X_Mouse_sens_Multi)
 	save_data()
 
 func Y_update_mouse_sens(value):
-	Y_mouse_sens_updated.emit(value)
+	Y_Mouse_sens_Multi = value
 	game_data.Y_Mouse_sens_Multi = value
 	print(game_data.Y_Mouse_sens_Multi)
 	save_data()

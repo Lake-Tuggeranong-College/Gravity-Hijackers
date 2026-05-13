@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://duoosh1dbprsf"]
+
+[ext_resource type="PackedScene" uid="uid://dia6e8liro8v" path="res://Settings/tabs/GeneralSettings.tscn" id="1_icfx5"]
+[ext_resource type="Script" uid="uid://btonm0v4r0w67" path="res://Settings/tabs/Scripts/y_sensitivititty.gd" id="2_icfx5"]
+
+[node name="Control" unique_id=887529520 instance=ExtResource("1_icfx5")]
+script = ExtResource("2_icfx5")
+
+[node name="Label" parent="HBoxContainer" parent_id_path=PackedInt32Array(212681061) index="0" unique_id=1402582745]
+text = "Y Sensitivititty"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer" parent_id_path=PackedInt32Array(212681061) index="2" unique_id=1697959625]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 0.05
+max_value = 0.5
+step = 0.005
+value = 0.1
+
+[node name="Sens_Val" type="Label" parent="HBoxContainer" parent_id_path=PackedInt32Array(212681061) index="3" unique_id=1014678051]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 32
+text = "20"
+horizontal_alignment = 1
+
+[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
