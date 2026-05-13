@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhirfyo8oy6e"
+path="res://.godot/imported/freesound_community-clean-machine-gun-burst-98224.mp3-c092aa411b78caf5d93cc52c8932e322.mp3str"
+
+[deps]
+
+source_file="res://scenes/Audric's Test Stuff/freesound_community-clean-machine-gun-burst-98224.mp3"
+dest_files=["res://.godot/imported/freesound_community-clean-machine-gun-burst-98224.mp3-c092aa411b78caf5d93cc52c8932e322.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

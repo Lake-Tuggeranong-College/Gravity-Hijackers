@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bd222fvf28nl8"]
+
+[ext_resource type="Texture2D" uid="uid://bednvlg3b8ul2" path="res://scenes/Audric's Test Stuff/UTR 130 Sniper Gun 3d models texture.bmp" id="1_n17nb"]
+[ext_resource type="ArrayMesh" uid="uid://cpyd3vwr3n2o4" path="res://scenes/Audric's Test Stuff/UTR 130 Sniper Gun 3d models (5).obj" id="2_b1pro"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymapv"]
+albedo_texture = ExtResource("1_n17nb")
+
+[node name="Node3D" type="Node3D" unique_id=63481432]
+
+[node name="Utr130SniperGun3dModels(5)" type="MeshInstance3D" parent="." unique_id=1999371713]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -1.6044441, 0, 0.37136316)
+material_override = SubResource("StandardMaterial3D_ymapv")
+mesh = ExtResource("2_b1pro")
