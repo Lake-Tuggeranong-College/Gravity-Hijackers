@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ckbf5f7076ddi" path="res://playerautorifle.gd" id="1_6otph"]
 [ext_resource type="PackedScene" uid="uid://bc5urmyohnj05" path="res://scenes/Audric's Test Stuff/UTARFor1ZIP.fbx" id="2_2x6ia"]
 [ext_resource type="Texture2D" uid="uid://vwob30tkwej4" path="res://addons/kenney_particle_pack/star_06.png" id="3_tno0c"]
+[ext_resource type="AudioStream" uid="uid://2ad7ms0fhawu" path="res://scenes/Audric's Test Stuff/audiomass-output.mp3" id="4_a588t"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xk8km"]
 
@@ -239,6 +240,7 @@ playback_default_blend_time = 0.05
 replication_config = SubResource("SceneReplicationConfig_hn37q")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1619676891]
+stream = ExtResource("4_a588t")
 volume_db = -20.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
