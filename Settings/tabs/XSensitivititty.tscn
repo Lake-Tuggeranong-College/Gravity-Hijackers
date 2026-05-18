@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4ioskhd1ajr5"]
 
 [ext_resource type="PackedScene" uid="uid://dia6e8liro8v" path="res://Settings/tabs/GeneralSettings.tscn" id="1_2dmm6"]
-[ext_resource type="Script" uid="uid://cv5sjfdf1atfy" path="res://Settings/tabs/Scripts/xsensitivititty.gd" id="2_ixdjp"]
+[ext_resource type="Script" uid="uid://cv5sjfdf1atfy" path="res://Settings/tabs/Scripts/x_sensitivititty.gd" id="2_ixdjp"]
 
 [node name="Control" unique_id=887529520 instance=ExtResource("1_2dmm6")]
 script = ExtResource("2_ixdjp")

@@ -160,8 +160,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 	_on_fov_updated(Save.game_data.FOV)
-	_X_on_mouse_sens_updated(X_mouse_sensitivity)
-	_Y_on_mouse_sens_updated(Y_mouse_sensitivity)
+	_X_on_mouse_sens_updated(Save.X_Mouse_sens_Multi)
+	_Y_on_mouse_sens_updated(Save.Y_Mouse_sens_Multi)
 
 @rpc("call_local")
 func play_shoot_effects():
