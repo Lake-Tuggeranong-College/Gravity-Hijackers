@@ -7,11 +7,12 @@
 [ext_resource type="Script" uid="uid://b6uvkpm8eyjif" path="res://Scripts/leaderboard.gd" id="4_rucky"]
 [ext_resource type="PackedScene" uid="uid://c1j7an8woikyd" path="res://scenes/environment.tscn" id="5_ftq4a"]
 [ext_resource type="AudioStream" uid="uid://bx2vjggij13yq" path="res://assets/sound/theme finished-ish.mp3" id="6_8b5ia"]
+[ext_resource type="PackedScene" uid="uid://qyiiwlpw3rdb" path="res://scenes/speed_pickup.tscn" id="7_dbplf"]
 [ext_resource type="PackedScene" uid="uid://dr07vvyi1xjlk" path="res://scenes/SpawnPoint.tscn" id="9_lwfgy"]
-[ext_resource type="Texture2D" uid="uid://r8147m0lintl" path="res://assets/images/Safety_0.png" id="9_r1245"]
-[ext_resource type="Texture2D" uid="uid://h013dn6w0stk" path="res://assets/images/Safety_6.png" id="10_ftq4a"]
-[ext_resource type="Texture2D" uid="uid://c7dxbpiccyihj" path="res://assets/images/Safety_4.png" id="11_cdpo3"]
-[ext_resource type="Texture2D" uid="uid://hcl0ypdm7r48" path="res://assets/images/Safety_2.png" id="12_3c8my"]
+[ext_resource type="Texture2D" uid="uid://bv0votnpertx7" path="res://assets/images/Safety_0.png" id="9_r1245"]
+[ext_resource type="Texture2D" uid="uid://d1qg7oqsudeyx" path="res://assets/images/Safety_6.png" id="10_ftq4a"]
+[ext_resource type="Texture2D" uid="uid://cfvfy66d1d4ld" path="res://assets/images/Safety_4.png" id="11_cdpo3"]
+[ext_resource type="Texture2D" uid="uid://bs8n8dabagm45" path="res://assets/images/Safety_2.png" id="12_3c8my"]
 [ext_resource type="Texture2D" uid="uid://f4xs2tf5325e" path="res://assets/images/Seamlessfuturisticmetal.jpg" id="13_pdj1a"]
 [ext_resource type="Texture2D" uid="uid://bcaxlwrexaxok" path="res://models/Safety_6.png" id="14_623b0"]
 
@@ -1067,6 +1068,9 @@ stream = ExtResource("6_8b5ia")
 volume_db = -10.0
 bus = &"Music"
 
+[node name="Speed_Pickup" parent="." unique_id=1682309210 groups=["speed_pickups"] instance=ExtResource("7_dbplf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.399181, -22.712837, -4.200104)
+
 [node name="MenuCamera" type="Camera3D" parent="." unique_id=1796198071]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5, 0)
 fov = 85.0
@@ -1675,6 +1679,9 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 2
 
 [node name="Flag4" parent="." unique_id=711811821 instance=ExtResource("3_0ddhe")]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 16, 53)
+
+[node name="Speed_Pickup2" parent="." unique_id=82090874 instance=ExtResource("7_dbplf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.523088, 2.5, 1.5361805)
 
 [connection signal="button_down" from="CanvasLayer/EscMenu/MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_button_down"]
 [connection signal="button_down" from="CanvasLayer/EscMenu/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
